@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog BestHousing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2c3e50;
+        }
+
+        header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .logo span {
+            color: #f1c40f;
+        }
+
+        .slogan {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: #2c3e50;
+            padding: 1rem 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f1c40f;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        main {
+            flex: 2;
+            margin-right: 2rem;
+        }
+
+        aside {
+            flex: 1;
+        }
+
+        article {
+            background-color: white;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .post-content {
+            padding: 2rem;
+        }
+
+        .post-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .post-meta {
+            color: #7f8c8d;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .post-excerpt {
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .read-more:hover {
+            background-color: #2980b9;
+        }
+
+        .sidebar-widget {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .widget-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f1c40f;
+            text-align: center;
+        }
+
+        .about-me img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 1rem;
+            object-fit: cover;
+        }
+
+        .about-me p {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: #3498db;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #2c3e50;
+        }
+
+        .popular-posts li {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .popular-posts li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .popular-posts a {
+            transition: color 0.3s;
+        }
+
+        .popular-posts a:hover {
+            color: #3498db;
+        }
+
+        .categories li {
+            margin-bottom: 0.5rem;
+        }
+
+        .categories a {
+            display: block;
+            padding: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .categories a:hover {
+            background-color: #f1f1f1;
+            padding-left: 1rem;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #f1c40f;
+        }
+
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            main {
+                margin-right: 0;
+                margin-bottom: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Best<span>Housing</span></div>
+        <p class="slogan">O blog do seu site de imoveis.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Acessar nosso site</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <main>
+            <div class="pdf-container">
+                <iframe src="CONTRATO_DE_POLÍTICA_DE_PRIVACIDADE.pdf" width="100%" height="800px" style="border: none;">
+                    Este navegador não suporta visualização de PDF.
+                    <a href="CONTRATO_DE_POLÍTICA_DE_PRIVACIDADE.pdf" target="_blank">Clique aqui para baixar o PDF</a>.
+                </iframe>
+            </div>
+        </main>
+
+        <aside>
+            <div class="sidebar-widget about-me">
+                <h3 class="widget-title">BestHousing</h3>
+                <p>Encontre imoveis perto de vocês com facilidade.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter">🐦</i></a>
+                    <a href="#"><i class="fab fa-linkedin">🔗</i></a>
+                    <a href="#"><i class="fab fa-github">💻</i></a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Acessar nosso site</a>
+            </div>
+            <p class="copyright">© 2025 BestHousing. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
